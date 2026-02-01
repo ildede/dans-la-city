@@ -1,6 +1,8 @@
 extends Node3D
 
 @onready var visible_message = $HUD/Casual
+var fighting = false
+var last_message_done = false
 
 func _ready() -> void:
 	if RenderingServer.get_current_rendering_method() == "gl_compatibility":
@@ -27,6 +29,8 @@ func _on_start_fight_timeout() -> void:
 	$Timer.start(3)
 
 func _start_fight_animation_and_sound():
+	fighting = true
+	visible_message.visible = false
 	$HUD/TheyNeedMe.visible = true
 	visible_message = $HUD/TheyNeedMe
 	$CloseMessage.start(5)
@@ -34,3 +38,34 @@ func _start_fight_animation_and_sound():
 	$World/fight.visible = true
 	$World/fight.play_fight()
 	$World/fight/Audio.play()
+
+
+func _player_enter_fight_area(body: Node3D) -> void:
+	if fighting and $Player.coins < 7:
+		visible_message.visible = false
+		$HUD/NotDressed.visible = true
+		visible_message = $HUD/NotDressed
+		$CloseMessage.start(5)
+	
+	if fighting and $Player.coins >= 7 and not last_message_done:
+		last_message_done = true
+		visible_message.visible = false
+		$HUD/JobDone.visible = true
+		visible_message = $HUD/JobDone
+		$Timer.timeout.disconnect(_start_fight_animation_and_sound)
+		$Timer.timeout.connect(message2)
+		$Timer.start(3)
+
+func message2():
+	visible_message.visible = false
+	$HUD/DidNothing.visible = true
+	visible_message = $HUD/DidNothing
+	$Timer.timeout.disconnect(message2)
+	$Timer.timeout.connect(message3)
+	$Timer.start(3)
+
+func message3():
+	visible_message.visible = false
+	$HUD/Exactly.visible = true
+	visible_message = $HUD/Exactly
+	$CloseMessage.start(5)
