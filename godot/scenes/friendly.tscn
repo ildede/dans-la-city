@@ -295,7 +295,9 @@ theme_override_constants/margin_bottom = 20
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/TheyNeedMe/MarginContainer" unique_id=898562155]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
-text = "They need me!"
+text = "They need me!
+Time to suit up!
+Where did I leave my stuff?"
 
 [node name="TextureRect" type="TextureRect" parent="HUD/TheyNeedMe" unique_id=406463540]
 layout_mode = 2
@@ -387,6 +389,35 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("19_metm7")
+stretch_mode = 4
+
+[node name="NotDressed" type="PanelContainer" parent="HUD" unique_id=112340346]
+visible = false
+layout_direction = 2
+layout_mode = 0
+offset_left = 509.0
+offset_top = 489.0
+offset_right = 1277.0
+offset_bottom = 716.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/NotDressed" unique_id=857532130]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/NotDressed/MarginContainer" unique_id=1708070477]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "I can't intervene
+dressed like a civilian... "
+
+[node name="TextureRect" type="TextureRect" parent="HUD/NotDressed" unique_id=1088406347]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("17_kttyp")
 stretch_mode = 4
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=109822987]

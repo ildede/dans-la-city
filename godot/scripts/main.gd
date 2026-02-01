@@ -27,6 +27,9 @@ func _on_start_fight_timeout() -> void:
 	$Timer.start(3)
 
 func _start_fight_animation_and_sound():
+	$HUD/TheyNeedMe.visible = true
+	visible_message = $HUD/TheyNeedMe
+	$CloseMessage.start(5)
 	$Scream.play()
 	$World/fight.visible = true
 	$World/fight.play_fight()
