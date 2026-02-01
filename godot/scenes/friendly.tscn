@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://t0scy8qa34xh" path="res://neighbourhood-city-modular-lowpoly/source/Untitled.glb" id="5_kgrgl"]
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="6_ta0d2"]
 [ext_resource type="PackedScene" uid="uid://b8nkdp4a34jv6" path="res://objects/collectible.tscn" id="8_xiy3h"]
-[ext_resource type="PackedScene" uid="uid://da5enrseh1lyn" path="res://models/tuxedo_mask.glb" id="9_w4p8h"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f17eg"]
 
@@ -131,15 +130,32 @@ text = "smoking"
 layout_mode = 2
 text = "cape"
 
-[node name="Sketchfab_Scene" parent="." unique_id=674778366 instance=ExtResource("9_w4p8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.538563, 0.00010532109, 36.46874)
-
 [node name="masque" parent="." unique_id=627194877 instance=ExtResource("8_xiy3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 14)
 type = "masque"
 
-[node name="cape" parent="." unique_id=1059275343 instance=ExtResource("8_xiy3h")]
+[node name="rose" parent="." unique_id=1377041563 instance=ExtResource("8_xiy3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9482746, 0, 14)
+type = "rose"
+
+[node name="baton" parent="." unique_id=1892684337 instance=ExtResource("8_xiy3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.266066, 0, 14)
+type = "baton"
+
+[node name="chapeau" parent="." unique_id=1059275343 instance=ExtResource("8_xiy3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.350528, 0, 14)
+type = "chapeau"
+
+[node name="gants" parent="." unique_id=954687345 instance=ExtResource("8_xiy3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.238048, 0, 14)
+type = "gants"
+
+[node name="smoking" parent="." unique_id=705163714 instance=ExtResource("8_xiy3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.073425, 0, 14)
+type = "smoking"
+
+[node name="cape" parent="." unique_id=162860077 instance=ExtResource("8_xiy3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.703266, 0, 14)
 type = "cape"
 
 [connection signal="coin_collected" from="Player" to="HUD" method="on_object_collected"]
