@@ -27,6 +27,8 @@ var change_clothes = false
 @onready var sound_footsteps = $SoundFootsteps
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
+@onready var animation_casual = $casual_run/AnimationPlayer
+@onready var animation_tuxedo = $tuxedo_run/AnimationPlayer
 
 #func _ready():
 #	$tuxedo_run/Light.omni_range = 0.0
@@ -94,6 +96,10 @@ func handle_effects(delta):
 		if speed_factor > 0.05:
 			if animation.current_animation != "walk":
 				animation.play("walk", 0.1)
+			if animation_casual.current_animation != "Running":
+				animation_casual.play("Running", 0.1, 5)
+			if animation_tuxedo.current_animation != "Running":
+				animation_tuxedo.play("Running", 0.1, 1)
 
 			if speed_factor > 0.3:
 				sound_footsteps.stream_paused = false

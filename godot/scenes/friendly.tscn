@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bw1x1bmswh5vc" path="res://sounds/cartoon_fight.mp3" id="14_w4p8h"]
 [ext_resource type="PackedScene" uid="uid://c7akcu5va0gs6" path="res://objects/gants.tscn" id="15_6b0ts"]
 [ext_resource type="AudioStream" uid="uid://bmychler04m86" path="res://sounds/Boss_Time.mp3" id="16_ly74i"]
+[ext_resource type="Texture2D" uid="uid://exnmifxwrbtj" path="res://models/thinking.png" id="17_kttyp"]
 [ext_resource type="AudioStream" uid="uid://d0psw2augq0g5" path="res://sounds/Epic8bit.mp3" id="18_ebslw"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f17eg"]
@@ -158,12 +159,13 @@ alignment = 1
 
 [node name="Masque" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1523536549]
 layout_mode = 2
-text = "MASQUE"
+text = "MASK"
 
 [node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Masque" unique_id=2116142465]
 visible = false
 modulate = Color(0, 0, 0, 0.8666667)
-position = Vector2(0, 13)
+position = Vector2(10.478978, 13)
+scale = Vector2(1.394958, 1)
 points = PackedVector2Array(-19, -1, 90, -1)
 width = 5.0
 
@@ -171,54 +173,59 @@ width = 5.0
 layout_mode = 2
 text = "ROSE"
 
-[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Rose" unique_id=1445039787]
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Rose" unique_id=278391677]
 visible = false
 modulate = Color(0, 0, 0, 0.8666667)
-position = Vector2(0, 13)
+position = Vector2(10.478978, 13)
+scale = Vector2(1.394958, 1)
 points = PackedVector2Array(-19, -1, 90, -1)
 width = 5.0
 
 [node name="Baton" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=687658687]
 layout_mode = 2
-text = "BATON"
+text = "WALKING CANE"
 
-[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Baton" unique_id=1898912101]
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Baton" unique_id=997948450]
 visible = false
 modulate = Color(0, 0, 0, 0.8666667)
-position = Vector2(0, 13)
+position = Vector2(10.478978, 13)
+scale = Vector2(1.394958, 1)
 points = PackedVector2Array(-19, -1, 90, -1)
 width = 5.0
 
 [node name="Chapeau" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1532793141]
 layout_mode = 2
-text = "CHAPEAU"
+text = "TOP HAT"
 
-[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Chapeau" unique_id=490345304]
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Chapeau" unique_id=213177777]
 visible = false
 modulate = Color(0, 0, 0, 0.8666667)
-position = Vector2(0, 13)
+position = Vector2(10.478978, 13)
+scale = Vector2(1.394958, 1)
 points = PackedVector2Array(-19, -1, 90, -1)
 width = 5.0
 
 [node name="Gants" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1073876928]
 layout_mode = 2
-text = "GANTS"
+text = "GLOVES"
 
-[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Gants" unique_id=1884126814]
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Gants" unique_id=1375275169]
 visible = false
 modulate = Color(0, 0, 0, 0.8666667)
-position = Vector2(0, 13)
+position = Vector2(10.478978, 13)
+scale = Vector2(1.394958, 1)
 points = PackedVector2Array(-19, -1, 90, -1)
 width = 5.0
 
 [node name="Smoking" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=66300097]
 layout_mode = 2
-text = "SMOKING"
+text = "TUXEDO"
 
-[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Smoking" unique_id=1476311173]
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Smoking" unique_id=1485544642]
 visible = false
 modulate = Color(0, 0, 0, 0.8666667)
-position = Vector2(0, 13)
+position = Vector2(10.478978, 13)
+scale = Vector2(1.394958, 1)
 points = PackedVector2Array(-19, -1, 90, -1)
 width = 5.0
 
@@ -226,12 +233,41 @@ width = 5.0
 layout_mode = 2
 text = "CAPE"
 
-[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Cape" unique_id=421190025]
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Cape" unique_id=992407541]
 visible = false
 modulate = Color(0, 0, 0, 0.8666667)
-position = Vector2(0, 13)
+position = Vector2(10.478978, 13)
+scale = Vector2(1.394958, 1)
 points = PackedVector2Array(-19, -1, 90, -1)
 width = 5.0
+
+[node name="TheyNeedMe" type="PanelContainer" parent="HUD" unique_id=1330307767]
+visible = false
+layout_direction = 2
+layout_mode = 0
+offset_left = 509.0
+offset_top = 491.0
+offset_right = 1279.0
+offset_bottom = 716.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/TheyNeedMe" unique_id=1382317869]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/TheyNeedMe/MarginContainer" unique_id=898562155]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "They need me!"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/TheyNeedMe" unique_id=406463540]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("17_kttyp")
+stretch_mode = 4
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=109822987]
 stream = ExtResource("16_ly74i")
@@ -242,6 +278,14 @@ autoplay = true
 stream = ExtResource("18_ebslw")
 volume_db = -15.0
 
+[node name="StartMessage" type="Timer" parent="." unique_id=740233047]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="CloseMessage" type="Timer" parent="." unique_id=419598693]
+one_shot = true
+
 [connection signal="coin_collected" from="Player" to="HUD" method="on_object_collected"]
 [connection signal="body_entered" from="World/masque" to="World/masque" method="_on_body_entered"]
 [connection signal="body_entered" from="World/rose" to="World/rose" method="_on_body_entered"]
@@ -250,3 +294,5 @@ volume_db = -15.0
 [connection signal="body_entered" from="World/chapeau" to="World/chapeau" method="_on_body_entered"]
 [connection signal="body_entered" from="World/cape" to="World/cape" method="_on_body_entered"]
 [connection signal="body_entered" from="World/gants" to="World/gants" method="_on_body_entered"]
+[connection signal="timeout" from="StartMessage" to="." method="_on_start_message_timeout"]
+[connection signal="timeout" from="CloseMessage" to="." method="_on_close_message_timeout"]

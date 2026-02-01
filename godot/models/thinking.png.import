@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb4r3cnltjmcl"
-path="res://.godot/imported/thinking.webp-841a1688f1746e9ab7bcfead8a7d8ba3.ctex"
+uid="uid://exnmifxwrbtj"
+path="res://.godot/imported/thinking.png-931a043952aa27562c0602b577317a18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/thinking.webp"
-dest_files=["res://.godot/imported/thinking.webp-841a1688f1746e9ab7bcfead8a7d8ba3.ctex"]
+source_file="res://models/thinking.png"
+dest_files=["res://.godot/imported/thinking.png-931a043952aa27562c0602b577317a18.ctex"]
 
 [params]
 
