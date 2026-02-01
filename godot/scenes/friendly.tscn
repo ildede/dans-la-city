@@ -21,8 +21,10 @@
 [ext_resource type="AudioStream" uid="uid://d0psw2augq0g5" path="res://sounds/Epic8bit.mp3" id="18_ebslw"]
 [ext_resource type="Texture2D" uid="uid://dnp7uls5g6kyf" path="res://models/marzio_victorious.png" id="19_metm7"]
 [ext_resource type="Texture2D" uid="uid://dqortwt4rms66" path="res://models/sailor_nothing.png" id="20_ubaa0"]
+[ext_resource type="AudioStream" uid="uid://djl3blw221yb2" path="res://sounds/final8bit.mp3" id="23_cf02f"]
 [ext_resource type="AudioStream" uid="uid://kww20yppe5bf" path="res://sounds/snd_broken_glass.mp3" id="23_ubaa0"]
 [ext_resource type="AudioStream" uid="uid://ont8iayrbesk" path="res://sounds/snd_scream.mp3" id="24_31678"]
+[ext_resource type="VideoStream" uid="uid://3j7421ph5qvn" path="res://scenes/Black_and_White_Simple_Movie_Credits_Video.ogv" id="24_cf02f"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f17eg"]
 
@@ -89,35 +91,35 @@ shape = SubResource("BoxShape3D_blo60")
 [node name="City" parent="World" unique_id=1737063565 instance=ExtResource("5_kgrgl")]
 
 [node name="masque" parent="World" unique_id=1091573605 instance=ExtResource("6_3n34g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.919, 1, 14.163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.080999, 1, 14.163)
 type = "masque"
 
 [node name="rose" parent="World" unique_id=2038493997 instance=ExtResource("8_kgrgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.903, 0.5, 13.87)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.903, 0.5, -15.130001)
 type = "rose"
 
 [node name="baton" parent="World" unique_id=1540186235 instance=ExtResource("9_kgrgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, 16)
 type = "baton"
 
 [node name="smoking" parent="World" unique_id=2021806342 instance=ExtResource("10_6b0ts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.613, 0.3, 14.144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.387, 0.3, 3.144)
 type = "smoking"
 
 [node name="chapeau" parent="World" unique_id=1439334601 instance=ExtResource("10_ta0d2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.204, 1, 13.91)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.796, 1, -16.09)
 type = "chapeau"
 
 [node name="cape" parent="World" unique_id=467155737 instance=ExtResource("9_rdlik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.882, 0.5, 14.073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.118, 0.5, -8.927)
 type = "cape"
 
 [node name="gants" parent="World" unique_id=31201424 instance=ExtResource("15_6b0ts")]
-transform = Transform3D(1, 0, 0, 0, 0.5130919, -0.85833365, 0, 0.85833365, 0.5130919, 16.88796, 0.8241788, 13.191143)
+transform = Transform3D(1, 0, 0, 0, 0.5130919, -0.85833365, 0, 0.85833365, 0.5130919, 3.8879604, 0.8241788, 15.191143)
 type = "gants"
 
 [node name="fight" parent="World" unique_id=116240436 instance=ExtResource("9_blo60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.232476, 0, -7.462289)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.232475, 0, 0.53771114)
 visible = false
 
 [node name="Audio" type="AudioStreamPlayer3D" parent="World/fight" unique_id=570435652]
@@ -425,6 +427,17 @@ size_flags_vertical = 4
 texture = ExtResource("17_kttyp")
 stretch_mode = 4
 
+[node name="CenterContainer" type="CenterContainer" parent="HUD" unique_id=2061360035]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.7, 0.7)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="HUD/CenterContainer" unique_id=2080577838]
+layout_mode = 2
+stream = ExtResource("24_cf02f")
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=109822987]
 stream = ExtResource("16_ly74i")
 volume_db = -15.0
@@ -432,6 +445,9 @@ volume_db = -15.0
 [node name="FinalMusic" type="AudioStreamPlayer" parent="." unique_id=113080684]
 stream = ExtResource("18_ebslw")
 volume_db = -15.0
+
+[node name="CreditsMusic" type="AudioStreamPlayer" parent="." unique_id=808442115]
+stream = ExtResource("23_cf02f")
 
 [node name="StartMessage" type="Timer" parent="." unique_id=740233047]
 wait_time = 2.0

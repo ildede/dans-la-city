@@ -50,6 +50,8 @@ func _player_enter_fight_area(body: Node3D) -> void:
 	if fighting and $Player.coins >= 7 and not last_message_done:
 		last_message_done = true
 		visible_message.visible = false
+		$World/fight/Audio.stop()
+		$World/fight.stop_fight()
 		$Player.play_end_animation()
 		$HUD/JobDone.visible = true
 		visible_message = $HUD/JobDone
@@ -69,4 +71,13 @@ func message3():
 	visible_message.visible = false
 	$HUD/Exactly.visible = true
 	visible_message = $HUD/Exactly
-	$CloseMessage.start(5)
+	$BackgroundMusic.stop()
+	$FinalMusic.stop()
+	$CreditsMusic.play()
+	$Timer.timeout.disconnect(message3)
+	$Timer.timeout.connect(credits_roll)
+	$Timer.start(4)
+
+func credits_roll():
+	$HUD/CenterContainer.visible = true
+	$HUD/CenterContainer/VideoStreamPlayer.play()
