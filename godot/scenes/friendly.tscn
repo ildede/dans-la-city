@@ -17,8 +17,13 @@
 [ext_resource type="AudioStream" uid="uid://bw1x1bmswh5vc" path="res://sounds/cartoon_fight.mp3" id="14_w4p8h"]
 [ext_resource type="PackedScene" uid="uid://c7akcu5va0gs6" path="res://objects/gants.tscn" id="15_6b0ts"]
 [ext_resource type="AudioStream" uid="uid://bmychler04m86" path="res://sounds/Boss_Time.mp3" id="16_ly74i"]
+[ext_resource type="Texture2D" uid="uid://bn2y5x6bib68d" path="res://models/marzio_smiling-casual.png" id="17_6txf5"]
 [ext_resource type="Texture2D" uid="uid://exnmifxwrbtj" path="res://models/thinking.png" id="17_kttyp"]
 [ext_resource type="AudioStream" uid="uid://d0psw2augq0g5" path="res://sounds/Epic8bit.mp3" id="18_ebslw"]
+[ext_resource type="Texture2D" uid="uid://dnp7uls5g6kyf" path="res://models/marzio_victorious.png" id="19_metm7"]
+[ext_resource type="Texture2D" uid="uid://dqortwt4rms66" path="res://models/sailor_nothing.png" id="20_ubaa0"]
+[ext_resource type="AudioStream" uid="uid://kww20yppe5bf" path="res://sounds/snd_broken_glass.mp3" id="23_ubaa0"]
+[ext_resource type="AudioStream" uid="uid://ont8iayrbesk" path="res://sounds/snd_scream.mp3" id="24_31678"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f17eg"]
 
@@ -44,6 +49,8 @@ finalMusic = NodePath("../FinalMusic")
 transform = Transform3D(0.81424594, -0.11335465, 0.5693455, -0.21733177, 0.8499054, 0.480029, -0.5383031, -0.51459855, 0.66739637, 5.6796618, 4.7029767, 6.692391)
 current = true
 fov = 40.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Player" unique_id=807759822]
 
 [node name="View" type="Node3D" parent="." unique_id=1047031692 node_paths=PackedStringArray("target")]
 transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
@@ -108,11 +115,11 @@ type = "gants"
 
 [node name="fight" parent="World" unique_id=116240436 instance=ExtResource("9_blo60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.193716, 0, -7.065525)
+visible = false
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World/fight" unique_id=570435652]
+[node name="Audio" type="AudioStreamPlayer3D" parent="World/fight" unique_id=570435652]
 stream = ExtResource("14_w4p8h")
 unit_size = 5.0
-autoplay = true
 max_distance = 18.0
 parameters/looping = false
 
@@ -241,13 +248,41 @@ scale = Vector2(1.394958, 1)
 points = PackedVector2Array(-19, -1, 90, -1)
 width = 5.0
 
+[node name="Casual" type="PanelContainer" parent="HUD" unique_id=1033266740]
+visible = false
+layout_direction = 2
+layout_mode = 0
+offset_left = 510.0
+offset_top = 487.0
+offset_right = 1276.0
+offset_bottom = 717.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Casual" unique_id=1099119116]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Casual/MarginContainer" unique_id=1728752099]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Ah, what a lovely day
+to stroll around the city!"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Casual" unique_id=70372300]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("17_6txf5")
+
 [node name="TheyNeedMe" type="PanelContainer" parent="HUD" unique_id=1330307767]
 visible = false
 layout_direction = 2
 layout_mode = 0
 offset_left = 509.0
-offset_top = 491.0
-offset_right = 1279.0
+offset_top = 489.0
+offset_right = 1277.0
 offset_bottom = 716.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/TheyNeedMe" unique_id=1382317869]
@@ -269,22 +304,120 @@ size_flags_vertical = 4
 texture = ExtResource("17_kttyp")
 stretch_mode = 4
 
+[node name="JobDone" type="PanelContainer" parent="HUD" unique_id=612616494]
+visible = false
+layout_direction = 2
+layout_mode = 0
+offset_left = 509.0
+offset_top = 491.0
+offset_right = 1279.0
+offset_bottom = 716.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/JobDone" unique_id=2138808411]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/JobDone/MarginContainer" unique_id=1765061835]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "My job here is done!"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/JobDone" unique_id=333358791]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("19_metm7")
+stretch_mode = 4
+
+[node name="DidNothing" type="PanelContainer" parent="HUD" unique_id=933475028]
+visible = false
+layout_direction = 2
+layout_mode = 0
+offset_left = 509.0
+offset_top = 491.0
+offset_right = 1279.0
+offset_bottom = 716.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/DidNothing" unique_id=2006215160]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/DidNothing/MarginContainer" unique_id=1296380762]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "But you didn't
+do anything..."
+
+[node name="TextureRect" type="TextureRect" parent="HUD/DidNothing" unique_id=1586848732]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("20_ubaa0")
+stretch_mode = 4
+
+[node name="Exactly" type="PanelContainer" parent="HUD" unique_id=360907683]
+visible = false
+layout_direction = 2
+layout_mode = 0
+offset_left = 509.0
+offset_top = 491.0
+offset_right = 1279.0
+offset_bottom = 716.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Exactly" unique_id=913189116]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Exactly/MarginContainer" unique_id=1505579955]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Exactly!"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Exactly" unique_id=705808894]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("19_metm7")
+stretch_mode = 4
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=109822987]
 stream = ExtResource("16_ly74i")
 volume_db = -15.0
-autoplay = true
 
 [node name="FinalMusic" type="AudioStreamPlayer" parent="." unique_id=113080684]
 stream = ExtResource("18_ebslw")
 volume_db = -15.0
 
 [node name="StartMessage" type="Timer" parent="." unique_id=740233047]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 
 [node name="CloseMessage" type="Timer" parent="." unique_id=419598693]
 one_shot = true
+
+[node name="StartFight" type="Timer" parent="." unique_id=1618786773]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1635913172]
+one_shot = true
+
+[node name="BrokenGlass" type="AudioStreamPlayer" parent="." unique_id=3497478]
+stream = ExtResource("23_ubaa0")
+
+[node name="Scream" type="AudioStreamPlayer" parent="." unique_id=1131560982]
+stream = ExtResource("24_31678")
 
 [connection signal="coin_collected" from="Player" to="HUD" method="on_object_collected"]
 [connection signal="body_entered" from="World/masque" to="World/masque" method="_on_body_entered"]
@@ -296,3 +429,4 @@ one_shot = true
 [connection signal="body_entered" from="World/gants" to="World/gants" method="_on_body_entered"]
 [connection signal="timeout" from="StartMessage" to="." method="_on_start_message_timeout"]
 [connection signal="timeout" from="CloseMessage" to="." method="_on_close_message_timeout"]
+[connection signal="timeout" from="StartFight" to="." method="_on_start_fight_timeout"]

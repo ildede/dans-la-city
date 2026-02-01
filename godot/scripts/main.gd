@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var visible_message = $HUD/TheyNeedMe
+@onready var visible_message = $HUD/Casual
 
 func _ready() -> void:
 	if RenderingServer.get_current_rendering_method() == "gl_compatibility":
@@ -13,9 +13,21 @@ func _ready() -> void:
 
 func _on_start_message_timeout() -> void:
 	visible_message.visible = false
-	$HUD/TheyNeedMe.visible = true
-	visible_message = $HUD/TheyNeedMe
+	$HUD/Casual.visible = true
+	visible_message = $HUD/Casual
 	$CloseMessage.start(5)
 
 func _on_close_message_timeout() -> void:
 	visible_message.visible = false
+
+func _on_start_fight_timeout() -> void:
+	$BrokenGlass.play()
+	$BackgroundMusic.play()
+	$Timer.timeout.connect(_start_fight_animation_and_sound)
+	$Timer.start(3)
+
+func _start_fight_animation_and_sound():
+	$Scream.play()
+	$World/fight.visible = true
+	$World/fight.play_fight()
+	$World/fight/Audio.play()
