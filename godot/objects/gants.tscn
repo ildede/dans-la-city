@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c7akcu5va0gs6"]
+
+[ext_resource type="PackedScene" uid="uid://dqvynhwh7yw6x" path="res://models/latex_gloves_fallen.glb" id="1_06svk"]
+[ext_resource type="Script" uid="uid://7n340nfxy3ux" path="res://objects/collectible.gd" id="1_62oom"]
+[ext_resource type="Texture2D" uid="uid://bs6puxrivhkk2" path="res://sprites/particle.png" id="2_gprvr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_62oom"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ck0l6"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_gprvr")
+billboard_mode = 1
+billboard_keep_scale = true
+proximity_fade_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_x6n2o"]
+colors = PackedColorArray(0.996094, 0.910156, 0.351563, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ike73"]
+gradient = SubResource("Gradient_x6n2o")
+
+[sub_resource type="Curve" id="Curve_xyu7p"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.504298, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e7gng"]
+curve = SubResource("Curve_xyu7p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3a6da"]
+direction = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+damping_min = 0.5
+damping_max = 0.5
+scale_min = 0.15
+scale_max = 0.15
+scale_curve = SubResource("CurveTexture_e7gng")
+color_ramp = SubResource("GradientTexture1D_ike73")
+
+[sub_resource type="QuadMesh" id="QuadMesh_830sg"]
+
+[node name="gants" type="Area3D" unique_id=31201424]
+script = ExtResource("1_62oom")
+
+[node name="Mesh" parent="." unique_id=1851020716 instance=ExtResource("1_06svk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.3, 0, 0.3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2022987434]
+shape = SubResource("SphereShape3D_62oom")
+
+[node name="Particles" type="GPUParticles3D" parent="." unique_id=664342247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.447834, 0)
+material_override = SubResource("StandardMaterial3D_ck0l6")
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_3a6da")
+draw_pass_1 = SubResource("QuadMesh_830sg")

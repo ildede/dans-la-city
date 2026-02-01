@@ -5,12 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="3_dw4lg"]
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="4_rdlik"]
 [ext_resource type="PackedScene" uid="uid://t0scy8qa34xh" path="res://neighbourhood-city-modular-lowpoly/source/Untitled.glb" id="5_kgrgl"]
+[ext_resource type="PackedScene" uid="uid://h6c7ik8awx1m" path="res://objects/masque.tscn" id="6_3n34g"]
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="6_ta0d2"]
 [ext_resource type="PackedScene" uid="uid://c0fi1l8sncbwx" path="res://objects/rose.tscn" id="8_kgrgl"]
-[ext_resource type="PackedScene" uid="uid://b8nkdp4a34jv6" path="res://objects/collectible.tscn" id="8_xiy3h"]
 [ext_resource type="PackedScene" uid="uid://duvdrrs0l4r8" path="res://objects/fight.tscn" id="9_blo60"]
 [ext_resource type="PackedScene" uid="uid://7prmxeljt3jt" path="res://objects/baton.tscn" id="9_kgrgl"]
+[ext_resource type="PackedScene" uid="uid://cvkq7cvymf0lx" path="res://objects/cape.tscn" id="9_rdlik"]
+[ext_resource type="PackedScene" uid="uid://2obwyuo7snqe" path="res://objects/smoking.tscn" id="10_6b0ts"]
 [ext_resource type="PackedScene" uid="uid://crgqi3whkdxfn" path="res://objects/peace.tscn" id="10_dw4lg"]
+[ext_resource type="PackedScene" uid="uid://bv7o08i0ejlwn" path="res://objects/chapeau.tscn" id="10_ta0d2"]
+[ext_resource type="PackedScene" uid="uid://c7akcu5va0gs6" path="res://objects/gants.tscn" id="15_6b0ts"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f17eg"]
 
@@ -66,35 +70,35 @@ debug_color = Color(1, 0, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2476063, 0, 0.88698876)
 shape = SubResource("BoxShape3D_blo60")
 
-[node name="Untitled" parent="World" unique_id=1737063565 instance=ExtResource("5_kgrgl")]
+[node name="City" parent="World" unique_id=1737063565 instance=ExtResource("5_kgrgl")]
 
-[node name="masque" parent="World" unique_id=627194877 instance=ExtResource("8_xiy3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 14)
+[node name="masque" parent="World" unique_id=1091573605 instance=ExtResource("6_3n34g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.919, 1, 14.163)
 type = "masque"
 
 [node name="rose" parent="World" unique_id=2038493997 instance=ExtResource("8_kgrgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9025984, 0, 13.870475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.903, 0.5, 13.87)
 type = "rose"
 
 [node name="baton" parent="World" unique_id=1540186235 instance=ExtResource("9_kgrgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 14)
 type = "baton"
 
-[node name="chapeau" parent="World" unique_id=1059275343 instance=ExtResource("8_xiy3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.350528, 0, 14)
-type = "chapeau"
-
-[node name="gants" parent="World" unique_id=954687345 instance=ExtResource("8_xiy3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.238048, 0, 14)
-type = "gants"
-
-[node name="smoking" parent="World" unique_id=705163714 instance=ExtResource("8_xiy3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.073425, 0, 14)
+[node name="smoking" parent="World" unique_id=2021806342 instance=ExtResource("10_6b0ts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.613, 0.3, 14.144)
 type = "smoking"
 
-[node name="cape" parent="World" unique_id=162860077 instance=ExtResource("8_xiy3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.703266, 0, 14)
+[node name="chapeau" parent="World" unique_id=1439334601 instance=ExtResource("10_ta0d2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.204, 1, 13.91)
+type = "chapeau"
+
+[node name="cape" parent="World" unique_id=467155737 instance=ExtResource("9_rdlik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.882, 0.5, 14.073)
 type = "cape"
+
+[node name="gants" parent="World" unique_id=31201424 instance=ExtResource("15_6b0ts")]
+transform = Transform3D(1, 0, 0, 0, 0.5130919, -0.85833365, 0, 0.85833365, 0.5130919, 16.88796, 0.8241788, 13.191143)
+type = "gants"
 
 [node name="fight" parent="World" unique_id=116240436 instance=ExtResource("9_blo60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 11)
@@ -169,5 +173,10 @@ layout_mode = 2
 text = "cape"
 
 [connection signal="coin_collected" from="Player" to="HUD" method="on_object_collected"]
+[connection signal="body_entered" from="World/masque" to="World/masque" method="_on_body_entered"]
 [connection signal="body_entered" from="World/rose" to="World/rose" method="_on_body_entered"]
 [connection signal="body_entered" from="World/baton" to="World/baton" method="_on_body_entered"]
+[connection signal="body_entered" from="World/smoking" to="World/smoking" method="_on_body_entered"]
+[connection signal="body_entered" from="World/chapeau" to="World/chapeau" method="_on_body_entered"]
+[connection signal="body_entered" from="World/cape" to="World/cape" method="_on_body_entered"]
+[connection signal="body_entered" from="World/gants" to="World/gants" method="_on_body_entered"]

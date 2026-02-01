@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://go33vgpq34tu"]
+
+[ext_resource type="Script" uid="uid://b2bh0hmdh8ftb" path="res://objects/running.gd" id="1_q5cow"]
+[ext_resource type="PackedScene" uid="uid://n02gcoxbdj4p" path="res://models/Running.fbx" id="2_7lsky"]
+
+[node name="running" type="Node3D" unique_id=348707122]
+script = ExtResource("1_q5cow")
+
+[node name="Running" parent="." unique_id=440323961 instance=ExtResource("2_7lsky")]
