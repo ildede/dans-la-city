@@ -30,17 +30,15 @@ var change_clothes = false
 @onready var animation_casual = $casual_run/AnimationPlayer
 @onready var animation_tuxedo = $tuxedo_run/AnimationPlayer
 
-#func _ready():
-#	$tuxedo_run/Light.omni_range = 0.0
-#	$casual_run/Light.omni_range = 0.0
-
 var rotation_speed = 150;
+var game_ended = false
 
 func _physics_process(delta):
 
 	# Handle functions
 
-	handle_controls(delta)
+	if not game_ended:
+		handle_controls(delta)
 	handle_gravity(delta)
 
 	handle_effects(delta)
@@ -53,7 +51,8 @@ func _physics_process(delta):
 	applied_velocity.y = -gravity
 
 	velocity = applied_velocity
-	move_and_slide()
+	if not game_ended:
+		move_and_slide()
 
 	# Rotation
 
@@ -86,7 +85,6 @@ func _physics_process(delta):
 # Handle animation(s)
 
 func handle_effects(delta):
-
 	particles_trail.emitting = false
 	sound_footsteps.stream_paused = true
 
@@ -99,7 +97,7 @@ func handle_effects(delta):
 			if animation_casual.current_animation != "Running":
 				animation_casual.play("Running", 0.1, 5)
 			if animation_tuxedo.current_animation != "Running":
-				animation_tuxedo.play("Running", 0.1, 1)
+				animation_tuxedo.play("Running", 0.1, 5)
 
 			if speed_factor > 0.3:
 				sound_footsteps.stream_paused = false
@@ -182,3 +180,9 @@ func collect_coin(type):
 		change_clothes = true
 		$tuxedo_run.visible = true
 		$casual_run.visible = false
+
+func play_end_animation():
+	game_ended = true
+	$tuxedo_run.visible = false
+	$tuxedo_job_done.visible = true
+	$tuxedo_job_done/AnimationPlayer.play("ArmatureAction")

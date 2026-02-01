@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c80vi2vqhkbyk" path="res://models/tuxedo_mask_running_blocky_casual.glb" id="3_3rfka"]
 [ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://meshes/dust.res" id="4_mvhqy"]
 [ext_resource type="AudioStream" uid="uid://cydjn1ct3hps2" path="res://sounds/walking.ogg" id="5_ics1s"]
+[ext_resource type="PackedScene" uid="uid://s52xvmku88ab" path="res://models/tuxedo_mask_job_done.glb" id="8_3rfka"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
 radius = 0.3
@@ -42,6 +43,9 @@ script = ExtResource("1_ffboj")
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=253682523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_gdq8c")
+
+[node name="tuxedo_job_done" parent="." unique_id=44467119 instance=ExtResource("8_3rfka")]
+visible = false
 
 [node name="tuxedo_run" parent="." unique_id=1496909391 instance=ExtResource("2_i825w")]
 visible = false
