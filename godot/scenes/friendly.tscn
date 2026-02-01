@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://7prmxeljt3jt" path="res://objects/baton.tscn" id="9_kgrgl"]
 [ext_resource type="PackedScene" uid="uid://cvkq7cvymf0lx" path="res://objects/cape.tscn" id="9_rdlik"]
 [ext_resource type="PackedScene" uid="uid://2obwyuo7snqe" path="res://objects/smoking.tscn" id="10_6b0ts"]
-[ext_resource type="PackedScene" uid="uid://crgqi3whkdxfn" path="res://objects/peace.tscn" id="10_dw4lg"]
 [ext_resource type="PackedScene" uid="uid://bv7o08i0ejlwn" path="res://objects/chapeau.tscn" id="10_ta0d2"]
 [ext_resource type="AudioStream" uid="uid://bw1x1bmswh5vc" path="res://sounds/cartoon_fight.mp3" id="14_w4p8h"]
 [ext_resource type="PackedScene" uid="uid://c7akcu5va0gs6" path="res://objects/gants.tscn" id="15_6b0ts"]
@@ -131,9 +130,6 @@ parameters/looping = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/fight/Area3D" unique_id=1291239659]
 shape = SubResource("CylinderShape3D_31678")
-
-[node name="peace" parent="World" unique_id=1535993150 instance=ExtResource("10_dw4lg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 12)
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=661692617]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)

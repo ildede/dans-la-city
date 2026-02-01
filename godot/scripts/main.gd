@@ -46,7 +46,7 @@ func _player_enter_fight_area(body: Node3D) -> void:
 		$HUD/NotDressed.visible = true
 		visible_message = $HUD/NotDressed
 		$CloseMessage.start(5)
-	
+
 	if fighting and $Player.coins >= 7 and not last_message_done:
 		last_message_done = true
 		visible_message.visible = false
