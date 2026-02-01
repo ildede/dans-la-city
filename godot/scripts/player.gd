@@ -156,8 +156,7 @@ func jump():
 
 # Collecting coins
 
-func collect_coin():
-
+func collect_coin(type):
+	print("blabla:", type)
 	coins += 1
-
-	coin_collected.emit(coins)
+	coin_collected.emit(type)

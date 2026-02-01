@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://lya3ykcqehxc"]
+
+[ext_resource type="Script" uid="uid://djpme521r3cxe" path="res://scripts/main.gd" id="1_kgrgl"]
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="2_blo60"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="3_dw4lg"]
+[ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="4_rdlik"]
+[ext_resource type="PackedScene" uid="uid://t0scy8qa34xh" path="res://neighbourhood-city-modular-lowpoly/source/Untitled.glb" id="5_kgrgl"]
+[ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="6_ta0d2"]
+[ext_resource type="PackedScene" uid="uid://b8nkdp4a34jv6" path="res://objects/collectible.tscn" id="8_xiy3h"]
+[ext_resource type="PackedScene" uid="uid://da5enrseh1lyn" path="res://models/tuxedo_mask.glb" id="9_w4p8h"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f17eg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kgrgl"]
+size = Vector3(6.5, 10, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blo60"]
+size = Vector3(2, 10, 3)
+
+[node name="Main" type="Node3D" unique_id=1373623691]
+script = ExtResource("1_kgrgl")
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1400114855]
+environment = ExtResource("2_blo60")
+
+[node name="Player" parent="." unique_id=1039179669 node_paths=PackedStringArray("view") groups=["player"] instance=ExtResource("3_dw4lg")]
+transform = Transform3D(0.974502, -0.100029364, 0.20084804, 0.13788128, 0.9731448, -0.18433118, -0.17701572, 0.20732427, 0.96212375, 11.710084, 0.1, 8.89799)
+view = NodePath("../View")
+
+[node name="Camera" type="Camera3D" parent="Player" unique_id=423831881]
+transform = Transform3D(0.81424594, -0.11335465, 0.5693455, -0.21733177, 0.8499054, 0.480029, -0.5383031, -0.51459855, 0.66739637, 5.6796618, 4.7029767, 6.692391)
+current = true
+fov = 40.0
+
+[node name="View" type="Node3D" parent="." unique_id=1047031692 node_paths=PackedStringArray("target")]
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
+script = ExtResource("4_rdlik")
+target = NodePath("../Player")
+
+[node name="Camera" type="Camera3D" parent="View" unique_id=700713778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+current = true
+fov = 40.0
+
+[node name="World" type="Node3D" parent="." unique_id=1586265654]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World" unique_id=128405645]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D" unique_id=698237709]
+shape = SubResource("WorldBoundaryShape3D_f17eg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="World/StaticBody3D" unique_id=1190841124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, 0, -2.2)
+shape = SubResource("BoxShape3D_kgrgl")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="World/StaticBody3D" unique_id=1215621331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, 0, 4)
+shape = SubResource("BoxShape3D_kgrgl")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="World/StaticBody3D" unique_id=1383080999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2476063, 0, 0.88698876)
+shape = SubResource("BoxShape3D_blo60")
+
+[node name="Untitled" parent="World" unique_id=1737063565 instance=ExtResource("5_kgrgl")]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=661692617]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="HUD" type="Control" parent="." unique_id=457057523]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("6_ta0d2")
+
+[node name="Container" type="PanelContainer" parent="HUD" unique_id=1947034075]
+layout_mode = 0
+offset_left = 1113.0
+offset_right = 1280.0
+offset_bottom = 205.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Container" unique_id=450524877]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VFlowContainer" type="VBoxContainer" parent="HUD/Container/MarginContainer" unique_id=1625222374]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Masque" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1523536549]
+layout_mode = 2
+text = "masque"
+
+[node name="Rose" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1522421913]
+layout_mode = 2
+text = "rose"
+
+[node name="Baton" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=687658687]
+layout_mode = 2
+text = "baton"
+
+[node name="Chapeau" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1532793141]
+layout_mode = 2
+text = "chapeau"
+
+[node name="Gants" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1073876928]
+layout_mode = 2
+text = "gants"
+
+[node name="Smoking" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=66300097]
+layout_mode = 2
+text = "smoking"
+
+[node name="Cape" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=545620869]
+layout_mode = 2
+text = "cape"
+
+[node name="Sketchfab_Scene" parent="." unique_id=674778366 instance=ExtResource("9_w4p8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.538563, 0.00010532109, 36.46874)
+
+[node name="masque" parent="." unique_id=627194877 instance=ExtResource("8_xiy3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 14)
+type = "masque"
+
+[node name="cape" parent="." unique_id=1059275343 instance=ExtResource("8_xiy3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.350528, 0, 14)
+type = "cape"
+
+[connection signal="coin_collected" from="Player" to="HUD" method="on_object_collected"]
