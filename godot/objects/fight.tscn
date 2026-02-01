@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://duvdrrs0l4r8"]
+
+[ext_resource type="Script" uid="uid://8gkvfkqhcsng" path="res://objects/fight.gd" id="1_7xrlm"]
+[ext_resource type="PackedScene" uid="uid://g7ahflwh86yb" path="res://models/fight.fbx" id="1_h8o8f"]
+[ext_resource type="PackedScene" uid="uid://d3uuav85mktrn" path="res://models/low_poly_cloud.glb" id="2_7xrlm"]
+
+[node name="fight" type="Node3D" unique_id=116240436]
+script = ExtResource("1_7xrlm")
+
+[node name="fight" parent="." unique_id=1393626621 instance=ExtResource("1_h8o8f")]
+
+[node name="Sketchfab_Scene" parent="." unique_id=2028565339 instance=ExtResource("2_7xrlm")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -3, 0, 4)

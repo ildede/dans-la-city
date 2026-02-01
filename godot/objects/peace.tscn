@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://crgqi3whkdxfn"]
+
+[ext_resource type="Script" uid="uid://bktbiv1roqa17" path="res://objects/peace.gd" id="1_guqry"]
+[ext_resource type="PackedScene" uid="uid://dtsg84i8di5pq" path="res://models/Shaking Hands 1.fbx" id="1_rkltu"]
+[ext_resource type="PackedScene" uid="uid://c61bvy0e75hy0" path="res://models/Shaking Hands 2.fbx" id="2_guqry"]
+
+[node name="peace" type="Node3D" unique_id=1535993150]
+script = ExtResource("1_guqry")
+
+[node name="man1" parent="." unique_id=2099367888 instance=ExtResource("1_rkltu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.65)
+
+[node name="man2" parent="." unique_id=1235110294 instance=ExtResource("2_guqry")]
+transform = Transform3D(-0.9965293, 0, -0.08324293, 0, 1, 0, 0.08324293, 0, -0.9965293, 0.1, 0, 0.65)
