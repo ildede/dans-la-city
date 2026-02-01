@@ -12,16 +12,16 @@ func on_object_collected(type):
 	print("on_object_collected: ", type)
 	match type:
 		"masque":
-			hud_masque.uppercase = true
+			hud_masque.get_child(0).visible = true
 		"rose":
-			hud_rose.uppercase = true
+			hud_rose.get_child(0).visible = true
 		"baton":
-			hud_baton.uppercase = true
+			hud_baton.get_child(0).visible = true
 		"chapeau":
-			hud_chapeau.uppercase = true
+			hud_chapeau.get_child(0).visible = true
 		"gants":
-			hud_gants.uppercase = true
+			hud_gants.get_child(0).visible = true
 		"smoking":
-			hud_smoking.uppercase = true
+			hud_smoking.get_child(0).visible = true
 		"cape":
-			hud_cape.uppercase = true
+			hud_cape.get_child(0).visible = true

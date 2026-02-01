@@ -146,31 +146,80 @@ alignment = 1
 
 [node name="Masque" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1523536549]
 layout_mode = 2
-text = "masque"
+text = "MASQUE"
+
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Masque" unique_id=2116142465]
+visible = false
+modulate = Color(0, 0, 0, 0.8666667)
+position = Vector2(0, 13)
+points = PackedVector2Array(-19, -1, 90, -1)
+width = 5.0
 
 [node name="Rose" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1522421913]
 layout_mode = 2
-text = "rose"
+text = "ROSE"
+
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Rose" unique_id=1445039787]
+visible = false
+modulate = Color(0, 0, 0, 0.8666667)
+position = Vector2(0, 13)
+points = PackedVector2Array(-19, -1, 90, -1)
+width = 5.0
 
 [node name="Baton" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=687658687]
 layout_mode = 2
-text = "baton"
+text = "BATON"
+
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Baton" unique_id=1898912101]
+visible = false
+modulate = Color(0, 0, 0, 0.8666667)
+position = Vector2(0, 13)
+points = PackedVector2Array(-19, -1, 90, -1)
+width = 5.0
 
 [node name="Chapeau" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1532793141]
 layout_mode = 2
-text = "chapeau"
+text = "CHAPEAU"
+
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Chapeau" unique_id=490345304]
+visible = false
+modulate = Color(0, 0, 0, 0.8666667)
+position = Vector2(0, 13)
+points = PackedVector2Array(-19, -1, 90, -1)
+width = 5.0
 
 [node name="Gants" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=1073876928]
 layout_mode = 2
-text = "gants"
+text = "GANTS"
+
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Gants" unique_id=1884126814]
+visible = false
+modulate = Color(0, 0, 0, 0.8666667)
+position = Vector2(0, 13)
+points = PackedVector2Array(-19, -1, 90, -1)
+width = 5.0
 
 [node name="Smoking" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=66300097]
 layout_mode = 2
-text = "smoking"
+text = "SMOKING"
+
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Smoking" unique_id=1476311173]
+visible = false
+modulate = Color(0, 0, 0, 0.8666667)
+position = Vector2(0, 13)
+points = PackedVector2Array(-19, -1, 90, -1)
+width = 5.0
 
 [node name="Cape" type="Label" parent="HUD/Container/MarginContainer/VFlowContainer" unique_id=545620869]
 layout_mode = 2
-text = "cape"
+text = "CAPE"
+
+[node name="Line" type="Line2D" parent="HUD/Container/MarginContainer/VFlowContainer/Cape" unique_id=421190025]
+visible = false
+modulate = Color(0, 0, 0, 0.8666667)
+position = Vector2(0, 13)
+points = PackedVector2Array(-19, -1, 90, -1)
+width = 5.0
 
 [connection signal="coin_collected" from="Player" to="HUD" method="on_object_collected"]
 [connection signal="body_entered" from="World/masque" to="World/masque" method="_on_body_entered"]
