@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://crgqi3whkdxfn" path="res://objects/peace.tscn" id="10_dw4lg"]
 [ext_resource type="PackedScene" uid="uid://bv7o08i0ejlwn" path="res://objects/chapeau.tscn" id="10_ta0d2"]
 [ext_resource type="PackedScene" uid="uid://c7akcu5va0gs6" path="res://objects/gants.tscn" id="15_6b0ts"]
+[ext_resource type="AudioStream" uid="uid://bmychler04m86" path="res://sounds/Boss_Time.mp3" id="16_ly74i"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f17eg"]
 
@@ -220,6 +221,11 @@ modulate = Color(0, 0, 0, 0.8666667)
 position = Vector2(0, 13)
 points = PackedVector2Array(-19, -1, 90, -1)
 width = 5.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=109822987]
+stream = ExtResource("16_ly74i")
+volume_db = -7.0
+autoplay = true
 
 [connection signal="coin_collected" from="Player" to="HUD" method="on_object_collected"]
 [connection signal="body_entered" from="World/masque" to="World/masque" method="_on_body_entered"]
