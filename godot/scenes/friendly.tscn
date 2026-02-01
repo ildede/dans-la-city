@@ -31,7 +31,7 @@ script = ExtResource("1_kgrgl")
 environment = ExtResource("2_blo60")
 
 [node name="Player" parent="." unique_id=1039179669 node_paths=PackedStringArray("view") groups=["player"] instance=ExtResource("3_dw4lg")]
-transform = Transform3D(0.974502, -0.100029364, 0.20084804, 0.13788128, 0.9731448, -0.18433118, -0.17701572, 0.20732427, 0.96212375, 11.710084, 0.1, 8.89799)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.710084, 0.1, 8.89799)
 view = NodePath("../View")
 
 [node name="Camera" type="Camera3D" parent="Player" unique_id=423831881]

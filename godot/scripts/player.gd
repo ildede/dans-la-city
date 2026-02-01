@@ -25,7 +25,9 @@ var coins = 0
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
 
-# Functions
+func _ready():
+	$tuxedo_run/Light.omni_range = 0.0
+	$casual_run/Light.omni_range = 0.0
 
 func _physics_process(delta):
 
@@ -157,6 +159,8 @@ func jump():
 # Collecting coins
 
 func collect_coin(type):
-	print("blabla:", type)
 	coins += 1
 	coin_collected.emit(type)
+	if coins >= 7:
+		$tuxedo_run.visible = true
+		$casual_run.visible = false

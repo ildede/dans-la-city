@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" uid="uid://br1k30d32naot" path="res://scripts/player.gd" id="1_ffboj"]
+[ext_resource type="PackedScene" uid="uid://dkljot5asw3sa" path="res://models/tuxedo_mask_running_blocky.fbx" id="2_i825w"]
 [ext_resource type="PackedScene" uid="uid://c0e27836xgmhi" path="res://objects/character.tscn" id="2_nero3"]
 [ext_resource type="Texture2D" uid="uid://8ggihh27mlrr" path="res://sprites/blob_shadow.png" id="3_0c7wt"]
 [ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://meshes/dust.res" id="4_mvhqy"]
 [ext_resource type="AudioStream" uid="uid://cydjn1ct3hps2" path="res://sounds/walking.ogg" id="5_ics1s"]
+[ext_resource type="PackedScene" uid="uid://c33frwvjx0dgd" path="res://models/tuxedo_mask_running_blocky_casual.fbx" id="7_3rfka"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
 radius = 0.3
@@ -35,23 +37,44 @@ gravity = Vector3(0, 0.1, 0)
 scale_min = 0.75
 scale_curve = SubResource("CurveTexture_f46kd")
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=362187723]
 script = ExtResource("1_ffboj")
 
-[node name="Collider" type="CollisionShape3D" parent="."]
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=253682523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 shape = SubResource("CapsuleShape3D_gdq8c")
 
-[node name="Character" parent="." instance=ExtResource("2_nero3")]
+[node name="tuxedo_run" parent="." unique_id=376976073 instance=ExtResource("2_i825w")]
+visible = false
 
-[node name="Shadow" type="Decal" parent="."]
+[node name="casual_run" parent="." unique_id=796310098 instance=ExtResource("7_3rfka")]
+
+[node name="Character" parent="." unique_id=1992817565 instance=ExtResource("2_nero3")]
+visible = false
+
+[node name="leg-left" parent="Character/character/root" parent_id_path=PackedInt32Array(1992817565, 1626033872) index="0" unique_id=1645578592]
+transform = Transform3D(0.96592593, 0, 0.2588191, 0, 1, 0, -0.2588191, 0, 0.96592593, 0.125, 0.17625, -0.02375)
+
+[node name="leg-right" parent="Character/character/root" parent_id_path=PackedInt32Array(1992817565, 1626033872) index="1" unique_id=115838770]
+transform = Transform3D(0.96592593, 0, -0.2588191, 0, 1, 0, 0.2588191, 0, 0.96592593, -0.125, 0.17625, -0.023750002)
+
+[node name="torso" parent="Character/character/root" parent_id_path=PackedInt32Array(1992817565, 1626033872) index="2" unique_id=1192851206]
+transform = Transform3D(1, 0, 0, 0, 0.996194, 0.08715568, 0, -0.08715568, 0.996194, -1.80478e-15, 0.17625, -0.02375)
+
+[node name="arm-left" parent="Character/character/root/torso" index="0" unique_id=1404150192]
+transform = Transform3D(0.70710695, 0.70710695, 0, -0.70710695, 0.70710695, 0, 0, 0, 1, 0.3, 0.175, 0)
+
+[node name="arm-right" parent="Character/character/root/torso" index="1" unique_id=892310424]
+transform = Transform3D(0.70710695, -0.70710695, 0, 0.70710695, 0.70710695, 0, 0, 0, 1, -0.3, 0.1195, 0)
+
+[node name="Shadow" type="Decal" parent="." unique_id=1567074835]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 size = Vector3(1, 2, 1)
 texture_albedo = ExtResource("3_0c7wt")
 modulate = Color(1, 1, 1, 0.705882)
 normal_fade = 0.5
 
-[node name="ParticlesTrail" type="GPUParticles3D" parent="."]
+[node name="ParticlesTrail" type="GPUParticles3D" parent="." unique_id=679588269]
 physics_interpolation_mode = 2
 material_override = SubResource("StandardMaterial3D_q7stj")
 cast_shadow = 0
@@ -60,7 +83,7 @@ fixed_fps = 0
 process_material = SubResource("ParticleProcessMaterial_3rerk")
 draw_pass_1 = ExtResource("4_mvhqy")
 
-[node name="SoundFootsteps" type="AudioStreamPlayer" parent="."]
+[node name="SoundFootsteps" type="AudioStreamPlayer" parent="." unique_id=730904847]
 stream = ExtResource("5_ics1s")
 volume_db = -5.0
 pitch_scale = 1.25
