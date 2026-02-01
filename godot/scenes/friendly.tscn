@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="4_rdlik"]
 [ext_resource type="PackedScene" uid="uid://t0scy8qa34xh" path="res://neighbourhood-city-modular-lowpoly/source/Untitled.glb" id="5_kgrgl"]
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="6_ta0d2"]
+[ext_resource type="PackedScene" uid="uid://c0fi1l8sncbwx" path="res://objects/rose.tscn" id="8_kgrgl"]
 [ext_resource type="PackedScene" uid="uid://b8nkdp4a34jv6" path="res://objects/collectible.tscn" id="8_xiy3h"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f17eg"]
@@ -134,13 +135,13 @@ text = "cape"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 14)
 type = "masque"
 
-[node name="rose" parent="." unique_id=1377041563 instance=ExtResource("8_xiy3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9482746, 0, 14)
-type = "rose"
-
 [node name="baton" parent="." unique_id=1892684337 instance=ExtResource("8_xiy3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.266066, 0, 14)
 type = "baton"
+
+[node name="rose" parent="." unique_id=2038493997 instance=ExtResource("8_kgrgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9025984, 0, 13.870475)
+type = "rose"
 
 [node name="chapeau" parent="." unique_id=1059275343 instance=ExtResource("8_xiy3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.350528, 0, 14)
@@ -159,3 +160,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.703266, 0, 14)
 type = "cape"
 
 [connection signal="coin_collected" from="Player" to="HUD" method="on_object_collected"]
+[connection signal="body_entered" from="rose" to="rose" method="_on_body_entered"]
