@@ -4,6 +4,8 @@ signal coin_collected
 
 @export_subgroup("Components")
 @export var view: Node3D
+@export var bgMusic: AudioStreamPlayer
+@export var finalMusic: AudioStreamPlayer
 
 @export_subgroup("Properties")
 @export var movement_speed = 250
@@ -19,15 +21,18 @@ var jump_single = true
 var jump_double = true
 
 var coins = 0
+var change_clothes = false
 
 @onready var particles_trail = $ParticlesTrail
 @onready var sound_footsteps = $SoundFootsteps
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
 
-func _ready():
-	$tuxedo_run/Light.omni_range = 0.0
-	$casual_run/Light.omni_range = 0.0
+#func _ready():
+#	$tuxedo_run/Light.omni_range = 0.0
+#	$casual_run/Light.omni_range = 0.0
+
+var rotation_speed = 150;
 
 func _physics_process(delta):
 
@@ -53,7 +58,11 @@ func _physics_process(delta):
 	if Vector2(velocity.z, velocity.x).length() > 0:
 		rotation_direction = Vector2(velocity.z, velocity.x).angle()
 
-	rotation.y = lerp_angle(rotation.y, rotation_direction, delta * 10)
+	if change_clothes and rotation_speed > 1:
+		rotate_y(rotation_speed * delta)
+		rotation_speed -= 1
+	else:
+		rotation.y = lerp_angle(rotation.y, rotation_direction, delta * 10)
 
 	# Falling/respawning
 
@@ -162,5 +171,8 @@ func collect_coin(type):
 	coins += 1
 	coin_collected.emit(type)
 	if coins >= 7:
+		bgMusic.stop()
+		finalMusic.play()
+		change_clothes = true
 		$tuxedo_run.visible = true
 		$casual_run.visible = false

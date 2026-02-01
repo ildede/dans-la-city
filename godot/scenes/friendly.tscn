@@ -14,8 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://2obwyuo7snqe" path="res://objects/smoking.tscn" id="10_6b0ts"]
 [ext_resource type="PackedScene" uid="uid://crgqi3whkdxfn" path="res://objects/peace.tscn" id="10_dw4lg"]
 [ext_resource type="PackedScene" uid="uid://bv7o08i0ejlwn" path="res://objects/chapeau.tscn" id="10_ta0d2"]
+[ext_resource type="AudioStream" uid="uid://bw1x1bmswh5vc" path="res://sounds/cartoon_fight.mp3" id="14_w4p8h"]
 [ext_resource type="PackedScene" uid="uid://c7akcu5va0gs6" path="res://objects/gants.tscn" id="15_6b0ts"]
 [ext_resource type="AudioStream" uid="uid://bmychler04m86" path="res://sounds/Boss_Time.mp3" id="16_ly74i"]
+[ext_resource type="AudioStream" uid="uid://d0psw2augq0g5" path="res://sounds/Epic8bit.mp3" id="18_ebslw"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f17eg"]
 
@@ -31,9 +33,11 @@ script = ExtResource("1_kgrgl")
 [node name="Environment" type="WorldEnvironment" parent="." unique_id=1400114855]
 environment = ExtResource("2_blo60")
 
-[node name="Player" parent="." unique_id=1039179669 node_paths=PackedStringArray("view") groups=["player"] instance=ExtResource("3_dw4lg")]
+[node name="Player" parent="." unique_id=1039179669 node_paths=PackedStringArray("view", "bgMusic", "finalMusic") groups=["player"] instance=ExtResource("3_dw4lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.710084, 0.1, 8.89799)
 view = NodePath("../View")
+bgMusic = NodePath("../BackgroundMusic")
+finalMusic = NodePath("../FinalMusic")
 
 [node name="Camera" type="Camera3D" parent="Player" unique_id=423831881]
 transform = Transform3D(0.81424594, -0.11335465, 0.5693455, -0.21733177, 0.8499054, 0.480029, -0.5383031, -0.51459855, 0.66739637, 5.6796618, 4.7029767, 6.692391)
@@ -102,7 +106,14 @@ transform = Transform3D(1, 0, 0, 0, 0.5130919, -0.85833365, 0, 0.85833365, 0.513
 type = "gants"
 
 [node name="fight" parent="World" unique_id=116240436 instance=ExtResource("9_blo60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.193716, 0, -7.065525)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World/fight" unique_id=570435652]
+stream = ExtResource("14_w4p8h")
+unit_size = 5.0
+autoplay = true
+max_distance = 18.0
+parameters/looping = false
 
 [node name="peace" parent="World" unique_id=1535993150 instance=ExtResource("10_dw4lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 12)
@@ -224,8 +235,12 @@ width = 5.0
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=109822987]
 stream = ExtResource("16_ly74i")
-volume_db = -7.0
+volume_db = -15.0
 autoplay = true
+
+[node name="FinalMusic" type="AudioStreamPlayer" parent="." unique_id=113080684]
+stream = ExtResource("18_ebslw")
+volume_db = -15.0
 
 [connection signal="coin_collected" from="Player" to="HUD" method="on_object_collected"]
 [connection signal="body_entered" from="World/masque" to="World/masque" method="_on_body_entered"]
