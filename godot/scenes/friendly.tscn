@@ -428,11 +428,12 @@ texture = ExtResource("17_kttyp")
 stretch_mode = 4
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD" unique_id=2061360035]
-visible = false
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-scale = Vector2(0.7, 0.7)
+offset_left = 15.0
+offset_top = 9.0
+offset_right = 1935.0
+offset_bottom = 1089.0
+scale = Vector2(0.65, 0.65)
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="HUD/CenterContainer" unique_id=2080577838]
 layout_mode = 2
